@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>La tua età: <span id="eta">-</span></p>
+    <p>La tua altezza: <span id="altezza">-</span></p>
+    <p>Biglietti acquistati: <span id="writeBiglietti">-</span></p>
+    <p>Prezzo: <span id="writePrezzo">-</span></p>
+
+    <!--SCRIPT-->
+
+    <script>
+      //PRENDO ID
+      let writeBiglietti = document.querySelector("#writeBiglietti");
+      let writePrezzo = document.querySelector("#writePrezzo");
+      let eta = document.querySelector("#eta");
+      let altezza = document.querySelector("#altezza");
+      let biglietti;
+      let prezzoBiglietti = 6;
+      let sconto = 0.6;
+      let prezzoTot;
+
+      //DICHIARO LE VAR
+      //ETA
+      do {
+        etaInput = parseInt(prompt("inserisci la tua età"));
+        eta.innerHTML = etaInput;
+      } while (etaInput < 16);
+      //ALTEZZA
+      do {
+        altezzaInput = altezzaInput = parseFloat(
+          prompt("inserisci la tua altezza in metri e usando il .(punto)")
+        );
+        altezza.innerHTML = altezzaInput;
+      } while (altezzaInput < 1.6);
+      //ETA
+      // let etaInput = parseInt(prompt("inserisci la tua età"));
+      // if (etaInput >= 16) {
+      //   eta.innerHTML = etaInput;
+      // } else {
+      //   eta.innerHTML = `<p style="color:red";>Ci dispiace non hai raggiunto l'età minima.</p>`
+      // }
+
+      //ALTEZZA
+      // let altezzaInput = parseFloat(
+      //   prompt("inserisci la tua altezza in metri e usando il .(punto)")
+      // );
+      // if (altezzaInput >= 1.60) {
+      //   altezza.innerHTML = `${altezzaInput * 100}cm`;
+      // } else {
+      //   altezza.innerHTML = `<p style="color:red";>Ci dispiace non hai raggiunto l'altezza minima.</p>`;
+      // }
+      //INSERIMENTO BIGLIETTI
+      biglietti = parseInt(prompt("inserisci il numero dei biglietti"));
+      writeBiglietti.innerHTML = biglietti;
+
+      for (let i = 1; i <= biglietti; i++) {
+        if (biglietti > 1) {
+          prezzoTot = (prezzoBiglietti - sconto) * i + sconto;
+        } else {
+          prezzoTot = prezzoBiglietti;
+        }
+
+        writePrezzo.innerHTML = prezzoTot.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
